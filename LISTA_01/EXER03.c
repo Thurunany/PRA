@@ -17,17 +17,14 @@ int compara(const void* a, const void* b) {
 }
 
 int main(){
-        int tam, n = 0;
+        int tam, n;
         printf("Qual o tamanho do seu vetor?\n");
         scanf("%d", &tam);
-        int v[tam], count = 0;
+        int v[tam];
 
         printf("Qual o seu vetor?\n");
         for(int i = 0; i < tam; i++){
               scanf("%d", &v[i]);
-                if(v[i] < 0){
-                count++;
-                }
         }
         
         qsort(v, tam, sizeof(int), compara);

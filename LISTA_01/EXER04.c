@@ -6,11 +6,36 @@ números podem incluir 0 ou negativos no vetor.
 ○ Exemplo 2, dado v = [5,1,1,5], a saída esperada é 10, considerando 5 + 5
 
 */
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(){
+int maior(int vetor[], int n){
+   int inicio = vetor[0], excl = 0, novo, i;
 
+   for (i = 1; i < n; i++) {
+      novo = inicio > excl ? inicio : excl;
+      
+      inicio = excl + vetor[i];
+      excl = novo;
+   }
 
-    return 0;
+   return inicio > excl ? inicio : excl;
+}
+
+int main() {
+        int n;
+    printf("Qual tamanho do vetor?\n");
+    scanf("%d", &n);
+
+    int v1[n];
+
+    printf("Qual seu vetor: \n");
+    for(int i=0; i<n; i++){
+        scanf("%d", &v1[i]);
+    }
+    
+	
+   printf("%d\n", maior(v1,5));
+
+   return 0;
 }
