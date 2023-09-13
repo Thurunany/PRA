@@ -11,7 +11,23 @@ exceção de i.
 #include <stdio.h>
 
 int main(){
+        int n = 1, tam;
+        printf("Qual o tamanho do seu vetor?\n");
+        scanf("%d", &tam);
+        int v[tam], v2[tam];
+
+        printf("Qual o seu vetor?? \n");
+        for(int i = 0; i < tam; i++){
+                scanf("%d", &v[i]);
+                n *= v[i];
+        }
+        printf("%d \n", n);
+
+        for(int i = 0; i < tam; i++){
+            v2[i] = n / v[i];
+            printf("%d ", v2[i]);
+        }
 
 
-    return 0;
+        return 0;
 }

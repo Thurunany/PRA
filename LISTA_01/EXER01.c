@@ -9,12 +9,12 @@ se a soma de qualquer par de números em v for igual a k.
 #include <stdio.h>
 
 int main(){
-    int n, k;
+    int n, soma;
     printf("Qual tamanho do vetor?\n");
     scanf("%d", &n);
 
     printf("Qual o valor da soma procurada? \n");
-    scanf("%d", &k);
+    scanf("%d", &soma);
 
     int v[n];
 
@@ -23,9 +23,17 @@ int main(){
         scanf("%d", &v[i]);
     }
     
-    for(int i=0; i<n; i++){
-        printf("%d ", v[i]);
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if (j != i && v[i] + v[j] == soma){
+                printf("true\n");
+                return 0;
+            }
+        }
     }
+    printf("false\n");
+
 
 
     return 0;

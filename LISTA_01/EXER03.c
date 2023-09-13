@@ -12,8 +12,36 @@ o esforço para ordenação do vetor).
 #include <stdlib.h>
 #include <stdio.h>
 
-int main(){
+int compara(const void* a, const void* b) {
+    return *(int *) a - *(int *) b;
+}
 
+int main(){
+        int tam, n = 0;
+        printf("Qual o tamanho do seu vetor?\n");
+        scanf("%d", &tam);
+        int v[tam], count = 0;
+
+        printf("Qual o seu vetor?\n");
+        for(int i = 0; i < tam; i++){
+              scanf("%d", &v[i]);
+                if(v[i] < 0){
+                count++;
+                }
+        }
+        
+        qsort(v, tam, sizeof(int), compara);
+
+        for(int i = 0; i < tam; i++){
+            n = v[i];
+            n += 1;
+            if(n > 0 && n != v[i+1]){
+                printf("VALOR QUE FALTA: %d \n", n);
+                return 0;
+            }
+        } 
+        printf("\n");
 
     return 0;
 }
+
